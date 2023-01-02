@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3EBCC994-64DF-484E-90A9-A8967F191BD0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{3318EDF0-0535-421B-9C90-AF67F243774F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coiny.Services.Catalog", "Services\Catalog\Coiny.Services.Catalog\Coiny.Services.Catalog.csproj", "{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3318EDF0-0535-421B-9C90-AF67F243774F} = {3EBCC994-64DF-484E-90A9-A8967F191BD0}
+		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA} = {3318EDF0-0535-421B-9C90-AF67F243774F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
