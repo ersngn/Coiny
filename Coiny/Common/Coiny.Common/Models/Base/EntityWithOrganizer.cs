@@ -1,7 +1,7 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace Coiny.Services.Catalog.Models.Base;
+namespace Coiny.Common.Models.Base;
 
 public class EntityWithOrganizer : EntityWithAudit
 {

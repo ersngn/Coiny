@@ -1,4 +1,4 @@
-namespace Coiny.Services.Catalog.Models.Base;
+namespace Coiny.Common.Models.Base;
 
 public class EntityWithAudit : Entity
 {

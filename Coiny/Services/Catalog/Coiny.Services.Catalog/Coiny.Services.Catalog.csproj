@@ -15,4 +15,8 @@
       <Folder Include="Controllers" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Common\Coiny.Common\Coiny.Common.csproj" />
+    </ItemGroup>
+
 </Project>

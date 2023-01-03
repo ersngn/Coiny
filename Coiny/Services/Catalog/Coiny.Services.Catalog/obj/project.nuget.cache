@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tH7RqRMQrirgYYMU3knY6ZDj/h+GauGiw7LNekm6wia+o4KvM/0wfyvjq0yomaGsIjjugKIyYnf7XMNq5Hvsww==",
+  "dgSpecHash": "CVixS6W2o+x1jETvLkNOiOz2jTKGFugIsYm22RhYnCdfvNOUuRVmmT0c77VRZjQ3rwBjbFPtXV6cMphpaETX1g==",
   "success": true,
   "projectFilePath": "/Users/eg/src/Coiny/Coiny/Services/Catalog/Coiny.Services.Catalog/Coiny.Services.Catalog.csproj",
   "expectedPackageFiles": [
@@ -24,7 +24,10 @@
     "/Users/eg/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "/Users/eg/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
     "/Users/eg/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
-    "/Users/eg/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512"
+    "/Users/eg/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512",
+    "/Users/eg/.nuget/packages/microsoft.netcore.app.ref/6.0.12/microsoft.netcore.app.ref.6.0.12.nupkg.sha512",
+    "/Users/eg/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.12/microsoft.aspnetcore.app.ref.6.0.12.nupkg.sha512",
+    "/Users/eg/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.12/microsoft.netcore.app.host.osx-arm64.6.0.12.nupkg.sha512"
   ],
   "logs": []
 }

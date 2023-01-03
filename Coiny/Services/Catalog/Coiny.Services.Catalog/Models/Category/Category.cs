@@ -1,4 +1,4 @@
-using Coiny.Services.Catalog.Models.Base;
+using Coiny.Common.Models.Base;
 
 namespace Coiny.Services.Catalog.Models.Category;
 

@@ -1,4 +1,4 @@
-using Coiny.Services.Catalog.Models.Base;
+using Coiny.Common.Models.Base;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
