@@ -14,6 +14,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Common\Constants" />
+      <Folder Include="Common\Enumeration" />
       <Folder Include="Controllers" />
     </ItemGroup>
 
