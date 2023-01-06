@@ -44,11 +44,17 @@ public class Response<T> : IDto
         };
     }
 
-    public static Response<T> Fail(ErrorDto error)
+    public static Response<T> Fail(Error error, string errorMessage)
     {
+        var errorDto = new ErrorDto()
+        {
+            Error = error,
+            ErrorCode = (int)error,
+            Message = errorMessage
+        };
         return new Response<T>()
         {
-            Errors = new List<ErrorDto>() { error },
+            Errors = new List<ErrorDto>() { errorDto },
             StatusCode = HttpStatusCode.BadRequest,
             IsSuccess = false
         };

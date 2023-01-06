@@ -13,6 +13,7 @@ public interface ICategoryService
     Task<Response<CategoryDto>> UpdateSubCategoryAsync(SubCategoryUpdateDto updateDto);
     Task<Response<CategoryDto>> GetByIdAsync(string id);
     Task<Response<CategoryDto?>> DeleteAsync(string id);
+    Task<Response<List<CategoryTreeDto>>> GetCategoryTreesAsync();
 
 
 }
