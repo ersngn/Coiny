@@ -15,6 +15,8 @@ public enum Error
     UpdateProcessFailed    = 1005,
     MainCategoryIdNull      = 1006,
     MainCategoryNotFound    = 1007,
+    MainCategoryNotFoundForThisCategory = 1008,
+    MainCategoriesNotFound              = 1009,
     
 
     #endregion

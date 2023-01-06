@@ -1,5 +1,6 @@
 using System.Net;
 using AutoMapper;
+using AutoMapper.Internal;
 using Coiny.Common.Constants;
 using Coiny.Common.Dtos.Base;
 using Coiny.Common.Enumeration;
@@ -26,11 +27,8 @@ public class CategoryService : ICategoryService
 
         if (categories.Count <= 0)
         {
-            return Response<List<CategoryDto>>.Fail(new ErrorDto()
-            {
-                Error = Error.CategoriesNotFound, ErrorCode = (int)Error.CategoriesNotFound,
-                Message = ErrorConstants.CategoriesNotFound
-            });
+            return Response<List<CategoryDto>>.Fail(Error.CategoriesNotFound,
+                ErrorConstants.CategoriesNotFound);
         }
 
         return Response<List<CategoryDto>>.Success(_mapper.Map<List<CategoryDto>>(categories));
@@ -42,11 +40,8 @@ public class CategoryService : ICategoryService
 
         if (categories.Count <= 0)
         {
-            return Response<List<CategoryDto>>.Fail(new ErrorDto()
-            {
-                Error = Error.CategoriesNotFound, ErrorCode = (int)Error.CategoriesNotFound,
-                Message = ErrorConstants.CategoriesNotFound
-            });
+            return Response<List<CategoryDto>>.Fail(Error.CategoriesNotFound,
+                ErrorConstants.CategoriesNotFound);
         }
 
         return Response<List<CategoryDto>>.Success(_mapper.Map<List<CategoryDto>>(categories));
@@ -68,13 +63,7 @@ public class CategoryService : ICategoryService
             var result = _categoryRepository.AddAsync(category);
             if (!result.IsCompleted)
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.CategoryNotCreated, 
-                    ErrorCode = (int)Error.CategoryNotCreated,
-                    Message = ErrorConstants.CategoryNotCreated
-                });
-
+                response=Response<CategoryDto>.Fail(Error.CategoryNotCreated, ErrorConstants.CategoryNotCreated);
                 return response;
             }
 
@@ -98,15 +87,9 @@ public class CategoryService : ICategoryService
         {
             var category = await _categoryRepository.GetByIdAsync(updateDto.Id);
 
-            if (category==null)
+            if (category == null)
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.CategoryNotFound, 
-                    ErrorCode = (int)Error.CategoryNotFound,
-                    Message = ErrorConstants.CategoryNotFound
-                });
-
+                response=Response<CategoryDto>.Fail(Error.CategoryNotFound,ErrorConstants.CategoryNotFound);
                 return response;
             }
 
@@ -116,13 +99,7 @@ public class CategoryService : ICategoryService
 
             if (!result.IsCompleted)
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.DeleteProcessFailed, 
-                    ErrorCode = (int)Error.DeleteProcessFailed,
-                    Message = ErrorConstants.DeleteProcessFailed
-                });
-
+                response = Response<CategoryDto>.Fail(Error.UpdateProcessFailed, ErrorConstants.UpdateProcessFailed);
                 return response;
             }
             
@@ -144,13 +121,7 @@ public class CategoryService : ICategoryService
         {
             if (createDto.MainCategoryId == null)
             {
-                response = Response<CategoryDto>.Fail(new ErrorDto()
-                {
-                    Error = Error.MainCategoryIdNull,
-                    ErrorCode = (int)Error.MainCategoryIdNull,
-                    Message = ErrorConstants.MainCategoryIdNull
-                });
-
+                response = Response<CategoryDto>.Fail(Error.MainCategoryIdNull, ErrorConstants.MainCategoryIdNull);
                 return response;
             }
 
@@ -158,13 +129,7 @@ public class CategoryService : ICategoryService
 
             if (!mainCategory.IsCompletedSuccessfully)
             {
-                response = Response<CategoryDto>.Fail(new ErrorDto()
-                {
-                    Error = Error.MainCategoryNotFound,
-                    ErrorCode = (int)Error.MainCategoryNotFound,
-                    Message = ErrorConstants.MainCategoryNotFound
-                });
-
+                response = Response<CategoryDto>.Fail(Error.MainCategoryNotFound, ErrorConstants.MainCategoryNotFound);
                 return response;
             }
 
@@ -178,13 +143,7 @@ public class CategoryService : ICategoryService
             var result = _categoryRepository.AddAsync(category);
             if (!result.IsCompleted)
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.CategoryNotCreated, 
-                    ErrorCode = (int)Error.CategoryNotCreated,
-                    Message = ErrorConstants.CategoryNotCreated
-                });
-
+                response = Response<CategoryDto>.Fail(Error.CategoryNotCreated, ErrorConstants.CategoryNotFound);
                 return response;
             }
 
@@ -208,13 +167,7 @@ public class CategoryService : ICategoryService
         {
             if (updateDto.MainCategoryId == null)
             {
-                response = Response<CategoryDto>.Fail(new ErrorDto()
-                {
-                    Error = Error.MainCategoryIdNull,
-                    ErrorCode = (int)Error.MainCategoryIdNull,
-                    Message = ErrorConstants.MainCategoryIdNull
-                });
-
+                response = Response<CategoryDto>.Fail(Error.MainCategoryIdNull,ErrorConstants.MainCategoryIdNull);
                 return response;
             }
 
@@ -222,13 +175,7 @@ public class CategoryService : ICategoryService
 
             if (!mainCategory.IsCompletedSuccessfully)
             {
-                response = Response<CategoryDto>.Fail(new ErrorDto()
-                {
-                    Error = Error.MainCategoryNotFound,
-                    ErrorCode = (int)Error.MainCategoryNotFound,
-                    Message = ErrorConstants.MainCategoryNotFound
-                });
-
+                response = Response<CategoryDto>.Fail(Error.MainCategoryNotFound, ErrorConstants.MainCategoryNotFound);
                 return response;
             }
 
@@ -242,12 +189,7 @@ public class CategoryService : ICategoryService
             var result = _categoryRepository.UpdateAsync(updateDto.Id,category);
             if (!result.IsCompleted)
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.CategoryNotCreated, 
-                    ErrorCode = (int)Error.CategoryNotCreated,
-                    Message = ErrorConstants.CategoryNotCreated
-                });
+                response=Response<CategoryDto>.Fail(Error.CategoryNotCreated,ErrorConstants.CategoryNotCreated);
 
                 return response;
             }
@@ -270,12 +212,7 @@ public class CategoryService : ICategoryService
         
         if (category == null)
         {
-            return Response<CategoryDto>.Fail(new ErrorDto()
-            {
-                Error = Error.CategoryNotFound, 
-                ErrorCode = (int)Error.CategoryNotFound,
-                Message = ErrorConstants.CategoryNotFound
-            });
+            return Response<CategoryDto>.Fail(Error.CategoryNotFound, ErrorConstants.CategoryNotFound);
         }
         
         return Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(category));
@@ -283,39 +220,47 @@ public class CategoryService : ICategoryService
 
     public async Task<Response<CategoryDto?>> DeleteAsync(string id)
     {
-        var response = new Response<CategoryDto>();
+        Response<CategoryDto> response;
 
         try
         {
             var category = await _categoryRepository.GetByIdAsync(id);
-
-            if (category==null)
+            if (category == null)
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.CategoryNotFound, 
-                    ErrorCode = (int)Error.CategoryNotFound,
-                    Message = ErrorConstants.CategoryNotFound
-                });
-
+                response = Response<CategoryDto>.Fail(Error.CategoryNotFound, ErrorConstants.CategoryNotFound);
                 return response;
             }
-
-            var result = _categoryRepository.DeleteAsync(category);
-
-            if (!result.IsCompleted)
+            if (string.IsNullOrWhiteSpace(category.MainCategoryId))
             {
-                response=Response<CategoryDto>.Fail(new ErrorDto
-                {
-                    Error = Error.DeleteProcessFailed, 
-                    ErrorCode = (int)Error.DeleteProcessFailed,
-                    Message = ErrorConstants.DeleteProcessFailed
-                });
+                var result = _categoryRepository.DeleteAsync(category);
 
-                return response;
+                if (!result.IsCompleted)
+                {
+                    response = Response<CategoryDto>.Fail(Error.DeleteProcessFailed, ErrorConstants.DeleteProcessFailed);
+                    return response;
+                }
             }
-            
-            response=Response<CategoryDto>.Success(HttpStatusCode.OK);
+            else
+            {
+                var mainCategory = await _categoryRepository.GetByIdAsync(category.MainCategoryId);
+                if (mainCategory == null)
+                {
+                    response = Response<CategoryDto>.Fail(Error.MainCategoryNotFoundForThisCategory,
+                        ErrorConstants.MainCategoryNotFoundForThisCategory);
+                    return response;
+                }
+
+                var subCategoriesByMainCategory =
+                    _categoryRepository.Get(e => e.MainCategoryId == mainCategory.Id).ToList();
+                if (subCategoriesByMainCategory.Count>0)
+                {
+                    foreach (var subCategory in subCategoriesByMainCategory)
+                    {
+                        await _categoryRepository.DeleteAsync(subCategory);
+                    }
+                }
+            }
+            response = Response<CategoryDto>.Success(HttpStatusCode.OK);
         }
         catch (Exception e)
         {
@@ -323,7 +268,41 @@ public class CategoryService : ICategoryService
         }
 
         return response;
+    }
 
+    public async Task<Response<List<CategoryTreeDto>>> GetCategoryTreesAsync()
+    {
+        Response<List<CategoryTreeDto>> response;
+        var responseData = new List<CategoryTreeDto>();
+        try
+        {
+            var mainCategories = await _categoryRepository.GetListAsync(e => e.IsActive);
 
+            if  (mainCategories.Count<=0)
+            {
+                response = Response<List<CategoryTreeDto>>.Fail(Error.MainCategoriesNotFound,
+                    ErrorConstants.MainCategoriesNotFound);
+
+                return response;
+            }
+
+            foreach (var mainCategory in mainCategories)
+            {
+                var subCategories =
+                    await _categoryRepository.GetListAsync(e => e.IsActive && e.MainCategoryId == mainCategory.Id);
+                var categoryTreeDto = _mapper.Map<CategoryTreeDto>(mainCategories);
+                categoryTreeDto.SubCategories = _mapper.Map<List<CategoryDto>>(subCategories);
+                
+                responseData.Add(categoryTreeDto);
+            }
+            response = Response<List<CategoryTreeDto>>.Success(responseData);
+        }
+        catch (Exception e)
+        {
+            response = Response<List<CategoryTreeDto>>.Fail(e.Message);
+            return response;
+        }
+
+        return response;
     }
 }
