@@ -54,14 +54,14 @@ public class CategoryService : ICategoryService
         try
         {
             var category = _mapper.Map<Models.Category.Category>(createDto);
-            
-            category.Id = new ObjectId().ToString();
+
+            category.Id = ObjectId.GenerateNewId().ToString();
             category.MainCategoryId = null;
             category.IsActive = true;
             category.IsDeleted = false;
 
             var result = _categoryRepository.AddAsync(category);
-            if (!result.IsCompleted)
+            if (result.IsFaulted)
             {
                 response=Response<CategoryDto>.Fail(Error.CategoryNotCreated, ErrorConstants.CategoryNotCreated);
                 return response;
@@ -95,15 +95,16 @@ public class CategoryService : ICategoryService
 
             category = _mapper.Map<Models.Category.Category>(updateDto);
 
-            var result = _categoryRepository.UpdateAsync(updateDto.Id,category);
+            var result = _categoryRepository.UpdateAsync(updateDto.Id, category);
 
-            if (!result.IsCompleted)
+            if (result.IsFaulted)
             {
                 response = Response<CategoryDto>.Fail(Error.UpdateProcessFailed, ErrorConstants.UpdateProcessFailed);
                 return response;
             }
-            
-            response = Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(result.Result));
+
+            var categoryDto = _mapper.Map<CategoryDto>(result.Result);
+            response = Response<CategoryDto>.Success(categoryDto);
         }
         catch (Exception e)
         {
@@ -127,21 +128,21 @@ public class CategoryService : ICategoryService
 
             var mainCategory = _categoryRepository.GetByIdAsync(createDto.MainCategoryId);
 
-            if (!mainCategory.IsCompletedSuccessfully)
+            if (mainCategory.IsFaulted)
             {
                 response = Response<CategoryDto>.Fail(Error.MainCategoryNotFound, ErrorConstants.MainCategoryNotFound);
                 return response;
             }
 
             var category = _mapper.Map<Models.Category.Category>(createDto);
-            
-            category.Id = new ObjectId().ToString();
+
+            category.Id = ObjectId.GenerateNewId().ToString();
             category.MainCategoryId = mainCategory.Result.Id;
             category.IsActive = true;
             category.IsDeleted = false;
 
             var result = _categoryRepository.AddAsync(category);
-            if (!result.IsCompleted)
+            if (result.IsFaulted)
             {
                 response = Response<CategoryDto>.Fail(Error.CategoryNotCreated, ErrorConstants.CategoryNotFound);
                 return response;
@@ -173,7 +174,7 @@ public class CategoryService : ICategoryService
 
             var mainCategory = _categoryRepository.GetByIdAsync(updateDto.MainCategoryId);
 
-            if (!mainCategory.IsCompletedSuccessfully)
+            if (mainCategory.IsFaulted)
             {
                 response = Response<CategoryDto>.Fail(Error.MainCategoryNotFound, ErrorConstants.MainCategoryNotFound);
                 return response;
@@ -187,7 +188,7 @@ public class CategoryService : ICategoryService
             category.IsDeleted = false;
 
             var result = _categoryRepository.UpdateAsync(updateDto.Id,category);
-            if (!result.IsCompleted)
+            if (result.IsFaulted)
             {
                 response=Response<CategoryDto>.Fail(Error.CategoryNotCreated,ErrorConstants.CategoryNotCreated);
 
@@ -234,7 +235,7 @@ public class CategoryService : ICategoryService
             {
                 var result = _categoryRepository.DeleteAsync(category);
 
-                if (!result.IsCompleted)
+                if (result.IsFaulted)
                 {
                     response = Response<CategoryDto>.Fail(Error.DeleteProcessFailed, ErrorConstants.DeleteProcessFailed);
                     return response;
@@ -276,7 +277,7 @@ public class CategoryService : ICategoryService
         var responseData = new List<CategoryTreeDto>();
         try
         {
-            var mainCategories = await _categoryRepository.GetListAsync(e => e.IsActive);
+            var mainCategories = await _categoryRepository.GetListAsync(e => e.IsActive && e.MainCategoryId == null);
 
             if  (mainCategories.Count<=0)
             {
@@ -289,11 +290,13 @@ public class CategoryService : ICategoryService
             foreach (var mainCategory in mainCategories)
             {
                 var subCategories =
-                    await _categoryRepository.GetListAsync(e => e.IsActive && e.MainCategoryId == mainCategory.Id);
-                var categoryTreeDto = _mapper.Map<CategoryTreeDto>(mainCategories);
-                categoryTreeDto.SubCategories = _mapper.Map<List<CategoryDto>>(subCategories);
+                    await _categoryRepository.GetListAsync(e => e.IsActive && e.MainCategoryId == mainCategory.Id); 
+                var categoryTreeDto = _mapper.Map<CategoryTreeDto>(mainCategory);
+                if (subCategories.Count > 0)
+                    categoryTreeDto.SubCategories = new List<CategoryDto>(_mapper.Map<List<CategoryDto>>(subCategories));
                 
                 responseData.Add(categoryTreeDto);
+                
             }
             response = Response<List<CategoryTreeDto>>.Success(responseData);
         }

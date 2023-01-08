@@ -1,9 +1,20 @@
 using Coiny.Services.Catalog.Infrastructure.Mongo;
+using Coiny.Services.Catalog.Repositories.Category;
+using Coiny.Services.Catalog.Services.Category;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+#region Service Registration
+
+builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddSingleton<ICategoryService, CategoryService>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+#endregion
 
 #region AutoMapper
 builder.Services.AddAutoMapper(typeof(Program));

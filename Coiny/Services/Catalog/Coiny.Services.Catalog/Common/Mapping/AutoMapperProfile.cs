@@ -24,6 +24,10 @@ public class AutoMapperProfile : Profile
         CreateMap<Category, SubCategoryUpdateDto>().ReverseMap();
         CreateMap<Category, MainCategoryCreateDto>().ReverseMap();
         CreateMap<Category, MainCategoryUpdateDto>().ReverseMap();
+        CreateMap<Category, CategoryTreeDto>().ReverseMap();
+        CreateMap<CategoryTreeDto, CategoryDto>().ReverseMap();
+        
+
         #endregion
 
 

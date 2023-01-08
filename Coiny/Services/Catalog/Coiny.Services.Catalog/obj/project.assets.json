@@ -444,7 +444,10 @@
         },
         "runtime": {
           "bin/placeholder/Coiny.Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
