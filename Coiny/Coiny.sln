@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B61C5A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coiny.Common", "Common\Coiny.Common\Coiny.Common.csproj", "{77D05404-1657-4812-BE79-98C2B43965B1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{53A0457B-E7C3-45BC-BE94-C1D23E8667CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coiny.IdentityServer", "IdentityServer\Coiny.IdentityServer\Coiny.IdentityServer.csproj", "{7960415E-6CB9-426B-878D-8049B7985CA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +23,7 @@ Global
 		{3318EDF0-0535-421B-9C90-AF67F243774F} = {3EBCC994-64DF-484E-90A9-A8967F191BD0}
 		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA} = {3318EDF0-0535-421B-9C90-AF67F243774F}
 		{77D05404-1657-4812-BE79-98C2B43965B1} = {B61C5A9A-4204-4028-BB7B-592A31A82C68}
+		{7960415E-6CB9-426B-878D-8049B7985CA2} = {53A0457B-E7C3-45BC-BE94-C1D23E8667CC}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{CFC93E98-A1F7-4F2F-AE35-D28755CE6EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -29,5 +34,9 @@ Global
 		{77D05404-1657-4812-BE79-98C2B43965B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77D05404-1657-4812-BE79-98C2B43965B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D05404-1657-4812-BE79-98C2B43965B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7960415E-6CB9-426B-878D-8049B7985CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7960415E-6CB9-426B-878D-8049B7985CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7960415E-6CB9-426B-878D-8049B7985CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7960415E-6CB9-426B-878D-8049B7985CA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
