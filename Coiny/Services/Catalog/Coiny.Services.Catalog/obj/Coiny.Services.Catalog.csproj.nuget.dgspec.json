@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eg/src/Coiny/Coiny/Services/Catalog/Coiny.Services.Catalog/Coiny.Services.Catalog.csproj": {}
+    "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Services\\Catalog\\Coiny.Services.Catalog\\Coiny.Services.Catalog.csproj": {}
   },
   "projects": {
-    "/Users/eg/src/Coiny/Coiny/Common/Coiny.Common/Coiny.Common.csproj": {
+    "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Common\\Coiny.Common\\Coiny.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eg/src/Coiny/Coiny/Common/Coiny.Common/Coiny.Common.csproj",
+        "projectUniqueName": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Common\\Coiny.Common\\Coiny.Common.csproj",
         "projectName": "Coiny.Common",
-        "projectPath": "/Users/eg/src/Coiny/Coiny/Common/Coiny.Common/Coiny.Common.csproj",
-        "packagesPath": "/Users/eg/.nuget/packages/",
-        "outputPath": "/Users/eg/src/Coiny/Coiny/Common/Coiny.Common/obj/",
+        "projectPath": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Common\\Coiny.Common\\Coiny.Common.csproj",
+        "packagesPath": "C:\\Users\\egun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Common\\Coiny.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/eg/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\egun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -49,21 +51,10 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -72,34 +63,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/eg/src/Coiny/Coiny/Services/Catalog/Coiny.Services.Catalog/Coiny.Services.Catalog.csproj": {
+    "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Services\\Catalog\\Coiny.Services.Catalog\\Coiny.Services.Catalog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eg/src/Coiny/Coiny/Services/Catalog/Coiny.Services.Catalog/Coiny.Services.Catalog.csproj",
+        "projectUniqueName": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Services\\Catalog\\Coiny.Services.Catalog\\Coiny.Services.Catalog.csproj",
         "projectName": "Coiny.Services.Catalog",
-        "projectPath": "/Users/eg/src/Coiny/Coiny/Services/Catalog/Coiny.Services.Catalog/Coiny.Services.Catalog.csproj",
-        "packagesPath": "/Users/eg/.nuget/packages/",
-        "outputPath": "/Users/eg/src/Coiny/Coiny/Services/Catalog/Coiny.Services.Catalog/obj/",
+        "projectPath": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Services\\Catalog\\Coiny.Services.Catalog\\Coiny.Services.Catalog.csproj",
+        "packagesPath": "C:\\Users\\egun\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Services\\Catalog\\Coiny.Services.Catalog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/eg/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\egun\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/eg/src/Coiny/Coiny/Common/Coiny.Common/Coiny.Common.csproj": {
-                "projectPath": "/Users/eg/src/Coiny/Coiny/Common/Coiny.Common/Coiny.Common.csproj"
+              "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Common\\Coiny.Common\\Coiny.Common.csproj": {
+                "projectPath": "C:\\Users\\egun\\source\\repos\\personal\\dotNet\\Coiny\\Coiny\\Common\\Coiny.Common\\Coiny.Common.csproj"
               }
             }
           }
@@ -137,25 +130,10 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.osx-arm64",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -164,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
